@@ -11,8 +11,7 @@ headers = {
 
 # Basic JSON payload with minimal criteria
 payload = {
-    "field_ids": ["identifier", "name"],
-    "limit": 5
+    "field_ids": ["identifier", "name"]
 }
 
 response = requests.post(url, headers=headers, data=json.dumps(payload))
