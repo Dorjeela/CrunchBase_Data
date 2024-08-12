@@ -9,11 +9,13 @@ headers = {
     "X-cb-user-key": "5ecfc303e1208e8617c895213d7c4926"
 }
 
-# Basic JSON payload with minimal criteria
 payload = {
     "field_ids": ["identifier", "name"]
 }
 
 response = requests.post(url, headers=headers, data=json.dumps(payload))
+data = response.json()
 
-print(json.dumps(response.json(), indent=4))
+permalinks = [org['properties']['identifier']['permalink'] for org in data['entities']]
+
+print(json.dumps(permalinks, indent=4))
